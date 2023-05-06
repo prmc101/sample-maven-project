@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [testsuite]">
+  <listeners>
+    <listener class-name="com.nopcommerce.demo.testng.TestNGListeners"/>
+  </listeners>
+  <test thread-count="5" name="Login Test(failed)">
+    <classes>
+      <class name="com.nopcommerce.demo.testng.TestNGListenersDemo">
+        <methods>
+          <include name="test3"/>
+          <include name="test2"/>
+        </methods>
+      </class> <!-- com.nopcommerce.demo.testng.TestNGListenersDemo -->
+    </classes>
+  </test> <!-- Login Test(failed) -->
+</suite> <!-- Failed suite [testsuite] -->

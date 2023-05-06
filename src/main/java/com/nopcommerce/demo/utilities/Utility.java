@@ -2,14 +2,15 @@ package com.nopcommerce.demo.utilities;
 
 import com.google.common.base.Function;
 import com.nopcommerce.demo.browserfactory.ManageBrowser;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -186,5 +187,26 @@ public class Utility extends ManageBrowser {
             }
         });
         return element;
+    }
+
+    //************************** ScreenShot Methods *********************************************//
+
+    public static String currentTimeStamp() {
+        Date d = new Date();
+        return d.toString().replace(":", "_").replace(" ", "_");
+    }
+
+    public static String takeScreenShot(String fileName) {
+        String filePath = System.getProperty("user.dir") + "/test-output/html/";
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File scr1 = screenshot.getScreenshotAs(OutputType.FILE);
+        String imageName = fileName + currentTimeStamp() + ".jpg";
+        String destination = filePath + imageName;
+        try {
+            FileUtils.copyFile(scr1, new File(destination));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return destination;
     }
 }

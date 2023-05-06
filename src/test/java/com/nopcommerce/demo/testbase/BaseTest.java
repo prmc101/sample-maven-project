@@ -21,5 +21,4 @@ public class BaseTest extends Utility {
     public void tearDown() {
         closeBrowser();
     }
-
 }
