@@ -3,7 +3,7 @@
 <suite name="testsuite" verbose="1">
     <test name="Login Test">
         <classes>
-            <class name="com.nopcommerce.demo.testng.TestNGDemo"></class>
+            <class name="com.nopcommerce.demo.testsuite.LoginTest"></class>
         </classes>
     </test>
 </suite>
